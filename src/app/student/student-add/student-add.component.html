@@ -1,0 +1,15 @@
+<div class="alert alert-success  alert-dismissible fade show" role="alert">
+  <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+  <strong class="mb-2">Add New Student</strong><br>
+  <label>Id</label><br>
+  <input class="mb-2" [(ngModel)]="newStd.Id"><br>
+
+  <label>Name</label><br>
+  <input class="mb-2" [(ngModel)]="newStd.Name"><br>
+
+  <label>Age</label><br>
+  <input class="mb-2" [(ngModel)]="newStd.Age"><br>
+
+  <button (click)="save()">Save</button>
+
+</div>

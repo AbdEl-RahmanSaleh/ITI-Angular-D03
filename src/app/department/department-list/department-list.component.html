@@ -1,0 +1,73 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Operation</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of departments; track item.Id) {
+          @if (item.Status == true){
+            <tr>
+              <td>{{item.Id}}</td>
+              <td>{{item.Name | uppercase}}</td>
+              <td>
+                <button (click)="Show(item.Id)">Show</button>
+              </td>
+            </tr>
+          }
+      }@empty {
+        <tr>
+          <td colspan="2">No Departments Exist</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+  <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+  <strong>{{deptDetails.Id}} :: {{deptDetails.Name | uppercase}} :: {{deptDetails.Location}}</strong>
+</div>
+
+<div class="alert alert-success  alert-dismissible fade show" role="alert">
+  <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+  <strong class="mb-2">Add New Department</strong><br>
+  <label>Id</label><br>
+  <input class="mb-2" [(ngModel)]="newDept.Id"><br>
+
+  <label>Name</label><br>
+  <input class="mb-2" [(ngModel)]="newDept.Name"><br>
+  <label>Location</label><br>
+  <select class="mb-2" [(ngModel)]="newDept.Location">
+    <option>Mansoura</option>
+    <option>Smart</option>
+    <option>Alex</option>
+  </select><br>
+  <label>Status</label>
+  <input class="mb-2 mx-2" type="checkbox" [(ngModel)]="newDept.Status"><br>
+  <button (click)="add()">Save</button>
+
+</div>
+
+<div class="alert alert-warning  alert-dismissible fade show" role="alert">
+  <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+  <strong class="mb-2">Edit Existing Department</strong><br>
+  <label>Id</label><br>
+  <input class="mb-2" [(ngModel)]="currDept.Id"><br>
+
+  <label>Name</label><br>
+  <input class="mb-2" [(ngModel)]="currDept.Name"><br>
+  <label>Location</label><br>
+  <select class="mb-2" [(ngModel)]="currDept.Location">
+    <option>Mansoura</option>
+    <option>Smart</option>
+    <option>Alex</option>
+  </select><br>
+  <label>Status</label>
+  <input class="mb-2 mx-2" type="checkbox" [(ngModel)]="currDept.Status"><br>
+  <button (click)="Edit(currDept.Id)">Save</button>
+
+</div>
